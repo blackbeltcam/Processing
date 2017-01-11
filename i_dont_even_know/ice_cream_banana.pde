@@ -1,0 +1,10 @@
+size (600, 600);
+background (0, 0, 0);
+fill (0, 136, 051);
+text("ice cream", 280, 100);
+fill (0, 119, 170);
+text("ice cream", 280, 200);
+fill (34, 255, 0);
+text("ice cream", 280, 300);
+fill (68, 102, 221);
+text("banana", 280, 400);
