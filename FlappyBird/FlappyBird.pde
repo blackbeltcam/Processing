@@ -5,10 +5,12 @@ int height=30;
 double birdYVelocity=0;
 double gravity=0.2;
 float pipex=270;
-float random = random(270, 330);
-float pipey=random;
+float random = random(100, 270);
+
 float pipew=40;
-boolean isAlive=true;
+
+float yheight=random;
+float gap=100;
 void setup(){
 size(300, 350);
 }
@@ -20,7 +22,7 @@ ellipse(x, y, width, height);
 birdYVelocity+=gravity;
 
 if (mousePressed){
- birdYVelocity--; 
+ birdYVelocity-=0.5; 
 }
 if (y<-20){
  y=-20;
@@ -31,28 +33,12 @@ if (y>390){
   birdYVelocity=0;
 }
 fill(153,0,153);
-rect(pipex,0,pipew,200);
-rect(pipex,pipey,pipew,100);
+rect(pipex,0,pipew,yheight);
+rect(pipex,yheight+gap,pipew,799);
 pipex-=1;
 if (pipex<-40){
  pipex=290; 
-random = random(270, 330);
- pipey=random;
+float random= random(50, 250);
+ yheight=random;
 }
-if (intersects(x,y,pipex,pipey,40)){
-  
-  endGame();
-  
-}
-}
-public void endGame(){
- fill (255, 0, 0);
- rect (0, 0, 300, 350);
-}
-
-boolean intersects(double x, int y, float pipex, float pipey, float pipew) {
-if (y > pipey - 4 && x > pipex && x < pipex + pipew)
-return true;
-else 
-return false;
 }
